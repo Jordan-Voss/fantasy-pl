@@ -1,5 +1,6 @@
-package com.fantasypower.powerliftingfantasy.registration.jwt;
+package com.fantasypower.powerliftingfantasy.repository;
 
+import com.fantasypower.powerliftingfantasy.entity.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

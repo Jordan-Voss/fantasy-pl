@@ -1,6 +1,6 @@
-package com.fantasypower.powerliftingfantasy.registration.token;
+package com.fantasypower.powerliftingfantasy.entity;
 
-import com.fantasypower.powerliftingfantasy.appuser.AppUser;
+import com.fantasypower.powerliftingfantasy.entity.AppUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

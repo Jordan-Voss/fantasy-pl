@@ -1,4 +1,4 @@
-package com.fantasypower.powerliftingfantasy.auth;
+package com.fantasypower.powerliftingfantasy.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

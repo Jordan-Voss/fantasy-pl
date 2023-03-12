@@ -1,17 +1,17 @@
-package com.fantasypower.powerliftingfantasy.registration;
+package com.fantasypower.powerliftingfantasy.service;
 
-import com.fantasypower.powerliftingfantasy.appuser.AppUser;
-import com.fantasypower.powerliftingfantasy.appuser.AppUserRole;
-import com.fantasypower.powerliftingfantasy.appuser.AppUserService;
-import com.fantasypower.powerliftingfantasy.registration.email.EmailSender;
-import com.fantasypower.powerliftingfantasy.registration.jwt.JwtTokenRepository;
-import com.fantasypower.powerliftingfantasy.registration.jwt.Token;
-import com.fantasypower.powerliftingfantasy.registration.jwt.TokenType;
-import com.fantasypower.powerliftingfantasy.registration.token.ConfirmationToken;
-import com.fantasypower.powerliftingfantasy.registration.token.ConfirmationTokenService;
-import com.fantasypower.powerliftingfantasy.security.config.JwtService;
+import com.fantasypower.powerliftingfantasy.entity.AppUser;
+import com.fantasypower.powerliftingfantasy.model.AppUserRole;
+import com.fantasypower.powerliftingfantasy.model.RegistrationRequest;
+import com.fantasypower.powerliftingfantasy.model.RegistrationResponse;
+import com.fantasypower.powerliftingfantasy.util.EmailSender;
+import com.fantasypower.powerliftingfantasy.repository.JwtTokenRepository;
+import com.fantasypower.powerliftingfantasy.entity.Token;
+import com.fantasypower.powerliftingfantasy.model.TokenType;
+import com.fantasypower.powerliftingfantasy.entity.ConfirmationToken;
+//import com.fantasypower.powerliftingfantasy.security.config.JwtService;
+import com.fantasypower.powerliftingfantasy.validator.EmailValidator;
 import jakarta.mail.MessagingException;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +28,7 @@ public class RegistrationService {
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
 
-    private final JwtService jwtService;
+//    private final JwtService jwtService;
 
     private final JwtTokenRepository jwtTokenRepository;
 
@@ -42,9 +42,9 @@ public class RegistrationService {
         String token = appUserService.registerUser(user);
         String link = "http://localhost:8080/api/v1/auth/confirm?token=" + token;
         emailSender.send(request.getEmail(), buildEmail(request.getFirstName(), link));
-        var jwtToken = jwtService.generateJwtTokenNoExtraClaims(user);
-        saveUserToken(user, jwtToken);
-        return RegistrationResponse.builder().jwtToken(jwtToken).confirmationToken(token).build();
+//        var jwtToken = jwtService.generateJwtTokenNoExtraClaims(user);
+//        saveUserToken(user, jwtToken);
+        return RegistrationResponse.builder().confirmationToken(token).build();
     }
 
     public void saveUserToken(AppUser user, String jwtToken) {

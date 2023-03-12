@@ -1,14 +1,12 @@
-package com.fantasypower.powerliftingfantasy.appuser;
+package com.fantasypower.powerliftingfantasy.service;
 
-import com.fantasypower.powerliftingfantasy.registration.token.ConfirmationToken;
-import com.fantasypower.powerliftingfantasy.registration.token.ConfirmationTokenService;
-import com.fantasypower.powerliftingfantasy.security.PasswordEncode;
+import com.fantasypower.powerliftingfantasy.entity.AppUser;
+import com.fantasypower.powerliftingfantasy.entity.ConfirmationToken;
+import com.fantasypower.powerliftingfantasy.repository.AppUserRepository;
+import com.fantasypower.powerliftingfantasy.util.PasswordEncode;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

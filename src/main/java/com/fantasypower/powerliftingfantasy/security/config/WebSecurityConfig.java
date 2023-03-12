@@ -1,6 +1,6 @@
 // package com.fantasypower.powerliftingfantasy.security.config;
 //
-// import com.fantasypower.powerliftingfantasy.appuser.AppUserService;
+// import com.fantasypower.powerliftingfantasy.service.AppUserService;
 // import lombok.AllArgsConstructor;
 // import org.springframework.context.annotation.Bean;
 // import org.springframework.context.annotation.Configuration;

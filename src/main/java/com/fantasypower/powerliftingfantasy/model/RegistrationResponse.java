@@ -1,4 +1,4 @@
-package com.fantasypower.powerliftingfantasy.registration;
+package com.fantasypower.powerliftingfantasy.model;
 
 import lombok.*;
 

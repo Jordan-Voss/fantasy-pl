@@ -1,5 +1,7 @@
-package com.fantasypower.powerliftingfantasy.registration.token;
+package com.fantasypower.powerliftingfantasy.service;
 
+import com.fantasypower.powerliftingfantasy.entity.ConfirmationToken;
+import com.fantasypower.powerliftingfantasy.repository.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

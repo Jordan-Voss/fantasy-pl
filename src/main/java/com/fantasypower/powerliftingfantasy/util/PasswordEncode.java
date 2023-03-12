@@ -1,4 +1,4 @@
-package com.fantasypower.powerliftingfantasy.security;
+package com.fantasypower.powerliftingfantasy.util;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.springframework.context.annotation.Bean;

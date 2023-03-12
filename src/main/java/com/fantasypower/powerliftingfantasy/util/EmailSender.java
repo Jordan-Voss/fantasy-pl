@@ -1,4 +1,4 @@
-package com.fantasypower.powerliftingfantasy.registration.email;
+package com.fantasypower.powerliftingfantasy.util;
 
 import jakarta.mail.MessagingException;
 
