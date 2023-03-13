@@ -5,6 +5,7 @@ import com.fantasypower.powerliftingfantasy.entity.ConfirmationToken;
 import com.fantasypower.powerliftingfantasy.repository.AppUserRepository;
 import com.fantasypower.powerliftingfantasy.util.PasswordEncode;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,8 @@ public class AppUserService implements UserDetailsService {
 
     private final ConfirmationTokenService confirmationTokenService;
 
-    private final static String USER_NOT_FOUND_USERNAME = "User not found with username %s";
-    private final static String USER_NOT_FOUND_EMAIL = "User not found with email %s";
+    public final static String USER_NOT_FOUND_USERNAME = "User not found with username %s";
+    public final static String USER_NOT_FOUND_EMAIL = "User not found with email %s";
 
     @Override
     public AppUser loadUserByUsername(String username) throws UsernameNotFoundException {

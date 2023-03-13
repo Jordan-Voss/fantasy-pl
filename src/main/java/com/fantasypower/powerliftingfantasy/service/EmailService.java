@@ -24,17 +24,10 @@ public class EmailService implements EmailSender {
     public void send(String to, String email) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
         message.setFrom("NO-REPLY@fantasypowerlifting.com");
-        Address recipient;
         message.setRecipients(MimeMessage.RecipientType.TO, to);
         message.setSubject("Confirm Your Email");
         message.setContent(email, "text/html; charset=utf-8");
         javaMailSender.send(message);
         LOGGER.info("Email Sent");
-        // MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-        // MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, "utf-8");
-        // mimeMessageHelper.setText(email, true);
-        // mimeMessageHelper.setTo(to);
-        // mimeMessageHelper.setSubject("Confirm Your Email");
-        // mimeMessageHelper.setFrom("NO_REPLY@fantasy-powerlifting.com");
     }
 }

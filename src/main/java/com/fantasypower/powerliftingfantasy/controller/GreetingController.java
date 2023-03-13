@@ -15,7 +15,7 @@ public class GreetingController {
     }
 
     @GetMapping("/goodbye")
-    public ResponseEntity<String> sayGoodbye(){
+    public ResponseEntity<String> sayGoodbye() {
         return ResponseEntity.ok("Goodbye");
     }
 }

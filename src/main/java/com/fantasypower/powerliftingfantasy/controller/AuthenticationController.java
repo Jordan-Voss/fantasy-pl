@@ -20,7 +20,8 @@ public class AuthenticationController {
     private final LoginService loginService;
 
     @PostMapping("/register")
-    public ResponseEntity<RegistrationResponse> registerUser(@RequestBody RegistrationRequest request) throws MessagingException {
+    public ResponseEntity<RegistrationResponse> registerUser(@RequestBody RegistrationRequest request)
+            throws MessagingException {
         return ResponseEntity.ok(registrationService.register(request));
     }
 
@@ -31,6 +32,6 @@ public class AuthenticationController {
 
     @PostMapping("/logins")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
-        return ResponseEntity.ok(loginService.login(request));
+            return ResponseEntity.ok(loginService.login(request));
+        }
     }
-}

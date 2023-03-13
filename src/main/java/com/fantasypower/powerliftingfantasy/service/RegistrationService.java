@@ -28,7 +28,7 @@ public class RegistrationService {
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
 
-//    private final JwtService jwtService;
+    // private final JwtService jwtService;
 
     private final JwtTokenRepository jwtTokenRepository;
 
@@ -42,18 +42,13 @@ public class RegistrationService {
         String token = appUserService.registerUser(user);
         String link = "http://localhost:8080/api/v1/auth/confirm?token=" + token;
         emailSender.send(request.getEmail(), buildEmail(request.getFirstName(), link));
-//        var jwtToken = jwtService.generateJwtTokenNoExtraClaims(user);
-//        saveUserToken(user, jwtToken);
+        // var jwtToken = jwtService.generateJwtTokenNoExtraClaims(user);
+        // saveUserToken(user, jwtToken);
         return RegistrationResponse.builder().confirmationToken(token).build();
     }
 
     public void saveUserToken(AppUser user, String jwtToken) {
-        var token = Token.builder()
-                .user(user)
-                .token(jwtToken)
-                .tokenType(TokenType.BEARER)
-                .expired(false)
-                .revoked(false)
+        var token = Token.builder().user(user).token(jwtToken).tokenType(TokenType.BEARER).expired(false).revoked(false)
                 .build();
         jwtTokenRepository.save(token);
     }
