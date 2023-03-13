@@ -1,4 +1,4 @@
-package com.fantasypower.powerliftingfantasy.security.config;
+package com.fantasypower.powerliftingfantasy.security;
 
 import com.fantasypower.powerliftingfantasy.entity.AppUser;
 import com.fantasypower.powerliftingfantasy.service.AppUserService;
