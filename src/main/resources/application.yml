@@ -1,0 +1,90 @@
+spring:
+
+    mvc:
+        pathmatch:
+            matching-strategy: ant_path_matcher
+
+#    .pathmatch.matching-strategy = ANT_PATH_MATCHER
+
+
+    security:
+        oauth2:
+            client:
+                registration:
+                    google:
+                        clientId: 5014057553-8gm9um6vnli3cle5rgigcdjpdrid14m9.apps.googleusercontent.com
+                        clientSecret: tWZKVLxaD_ARWsriiiUFYoIk
+                        redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+                        scope:
+                            - email
+                            - profile
+                    facebook:
+                        clientId: 121189305185277
+                        clientSecret: 42ffe5aa7379e8326387e0fe16f34132
+                        redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+                        scope:
+                            - email
+                            - public_profile
+                    github:
+                        clientId: d3e47fc2ddd966fa4352
+                        clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
+                        redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+                        scope:
+                            - user:email
+                            - read:user
+                provider:
+                    facebook:
+                        authorizationUri: https://www.facebook.com/v3.0/dialog/oauth
+                        tokenUri: https://graph.facebook.com/v3.0/oauth/access_token
+
+
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: ENC(NuZIDNviOgr1idk1OHla6DtuyNwtwQYX)
+        url: jdbc:postgresql://localhost:5432/register
+        username: postgres
+
+    jpa:
+        database: postgresql
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                format_sql: true
+        show-sql: true
+
+    mail:
+        host: smtp.gmail.com
+        password: moxhbbzqqymmjcow
+        port: 587
+        properties:
+            mail:
+                debug: true
+                smtp:
+                    auth: true
+                    connectiontimeout: 5000
+                    starttls:
+                        enable: true
+                    timeout: 3000
+                    writetimeout: 5000
+        username: jordanvoss98@gmail.com
+
+app:
+    cors:
+        allowedOrigins: http://localhost:3000,http://localhost:8080
+
+jwt:
+    secret:
+        key: ENC(Z+1ncY8oDilXLsjQjTFzyuOrewTLIMiBEeHcSclI9vU2F/3UjP7UV+/cWWD4E8Q/7CYIZYwyfCMRmfMkermItI+DHFdZVJv5xKRDvHUrjjo=)
+
+security:
+    user:
+        name: ENC(2Z7y9w1tcVpuBlzluU0oZg==)
+        password: ENC(yiMSjS8Kteym1KKvD9R2YsLC+IiDuPtK)
+
+server:
+    error:
+        include-binding-errors: always
+        include-message: always

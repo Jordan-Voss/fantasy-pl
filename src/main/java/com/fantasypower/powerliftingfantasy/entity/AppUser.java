@@ -1,8 +1,10 @@
 package com.fantasypower.powerliftingfantasy.entity;
 
 import com.fantasypower.powerliftingfantasy.model.AppUserRole;
+import com.fantasypower.powerliftingfantasy.model.AuthProvider;
 import jakarta.persistence.*;
 import lombok.*;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
+@Setter
 @Builder
 @EqualsAndHashCode
 @NoArgsConstructor
@@ -29,6 +32,14 @@ public class AppUser implements UserDetails {
     private String username;
     private String email;
     private String password;
+
+    private String imageUrl;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private AuthProvider provider;
+
+    private String providerId;
 
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
@@ -74,6 +85,18 @@ public class AppUser implements UserDetails {
         return email;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public AuthProvider getProvider() {
+        return provider;
+    }
+
+    public String getProviderId() {
+        return providerId;
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -93,4 +116,5 @@ public class AppUser implements UserDetails {
     public boolean isEnabled() {
         return isEnabled;
     }
+
 }
